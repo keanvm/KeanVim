@@ -22,7 +22,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/taglist.vim'
 
 " TaskList
-" vim-scripts/TaskList.vim
+Plugin 'vim-scripts/TaskList.vim'
 
 " filesystem
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -76,6 +76,10 @@ Plugin 'vim-airline/vim-airline'
 
 " clolors
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
+" Plugin 'w0ng/vim-hybrid'
+" Plugin 'junegunn/seoul256.vim'/'liuchengxu/space-vim-dark'
 
 call vundle#end()
 filetype plugin indent on " enables filetype detection
@@ -83,6 +87,12 @@ filetype plugin indent on " enables filetype detection
 " Vim bundle }}}
 
 " =============================================== Plugin Config {{{
+
+" ============================= TaskList {{{
+let g:tlTokenList = ["FIXME", "TODO", "HACK", "NOTE", "WARN", "MODIFY", "ERROR", "BUG"]
+nnoremap <Leader>t :TaskList<CR>
+
+" }}}
 
 " ============================= Tagbar & Taglist {{{
 nmap <F8> :TagbarToggle<CR>
@@ -98,7 +108,7 @@ let Tlist_Auto_Open=0
 " ============================= SimpylFold {{{
 autocmd FileType python set foldmethod=indent
 autocmd FileType vim set foldmethod=marker
-autocmd FileType c,cs,cpp,java,js set foldmethod=manual
+" autocmd FileType c,cs,cpp,java,js set foldmethod=manual
 let g:SimpylFold_docstring_preview = 1
 " let g:SimpylFold_fold_import = 1  " fold import
 " let g:SimpylFold_fold_docstring = 1  " fold docstring
@@ -108,6 +118,9 @@ let g:SimpylFold_docstring_preview = 1
 " SimpylFold }}}
 
 " ============================= Syntastic {{{
+"let g:syntastic_cpp_include_dirs = ['/usr/include/']
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_check_header = 1
 " let g:syntastic_ignore_files=[".*\.py$"]
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -120,6 +133,18 @@ let g:syntastic_check_on_wq = 0
 " change the compiler to g++ to support c++11.
 " let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++' "set the options of g++ to suport
+" let g:syntastic_cpp_compiler = 'clang++'
+" let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+
+"安装flake8: easy_install flake8
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501'
+
+"set error or warning signs
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+"whether to show balloons
+let g:syntastic_enable_balloons = 1
 
 " Syntastic }}}
 
@@ -159,11 +184,19 @@ let g:gitgutter_highlight_lines = 1
 
 " GitGutter }}}
 
-" ============================= Color Style {{{{
-let g:solarized_termcolors=256 " important
-colorscheme solarized "zenburn
+" ============================= Color Style {{{
 set background=dark
+set t_Co=256
+" ========= Solarized
+let g:solarized_termcolors=256 " important
+colorscheme solarized 
+" colorscheme zenburn
+" colorscheme molokai
+" colorscheme desert
 " set guifont=Monaco:h14
+" ========= Molokai
+" let g:molokai_original = 1
+" let g:rehash256 = 1
 
 " Color Style }}}
 
@@ -284,7 +317,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 inoremap jk <esc>:w<CR>
-nnoremap <space> za
+nnoremap <space>f za
 
 " set noswapfile    " don't use swap files
 set encoding=utf-8  " Set the default file encoding to UTF-8:
@@ -300,7 +333,7 @@ set cindent         " Like smartindent, but stricter and more customisable
 set mouse=a         " Always can use mouse 
 set backspace=indent,eol,start " make backspaces more powerful
 set foldmethod=indent
-set foldlevel=3     " 99?
+set foldlevel=3     " default fold level on file open
 set hlsearch        " 高亮显示搜索结果
 set cursorline      " 高亮显示当前行/列
 set cursorcolumn
