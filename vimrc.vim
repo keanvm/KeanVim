@@ -282,18 +282,18 @@ nnoremap <C-H> <C-W><C-H>
 inoremap jk <esc>:w<CR>
 nnoremap <space> za
 
-" set noswapfile      "don't use swap files
-set encoding=utf-8  "Set the default file encoding to UTF-8:
+" set noswapfile    " don't use swap files
+set encoding=utf-8  " Set the default file encoding to UTF-8:
 set fileencodings=utf-8,chinese,latin-1 "
-set expandtab       "Use softtabstop spaces instead of tab characters for indentation
+set expandtab       " Use softtabstop spaces instead of tab characters for indentation
 set ts=4
-set shiftwidth=4    "Indent by 4 spaces when using >>, <<, == etc.
-set softtabstop=4   "Indent by 4 spaces when pressing <TAB>
+set shiftwidth=4    " Indent by 4 spaces when using >>, <<, == etc.
+set softtabstop=4   " Indent by 4 spaces when pressing <TAB>
 
-set autoindent      "Keep indentation from previous line
-set smartindent     "Automatically inserts indentation in some cases
-set cindent         "Like smartindent, but stricter and more customisable
-
+set autoindent      " Keep indentation from previous line
+set smartindent     " Automatically inserts indentation in some cases
+set cindent         " Like smartindent, but stricter and more customisable
+set mouse=a         " Always can use mouse 
 set backspace=indent,eol,start " make backspaces more powerful
 set foldmethod=indent
 set foldlevel=3     " 99?
