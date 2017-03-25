@@ -17,6 +17,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+" Easy Motion
+" Plugin 'easymotion/vim-easymotion'
+
 " Tagbar & Taglist
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/taglist.vim'
@@ -78,6 +81,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
+Plugin 'sickill/vim-monokai'
 " Plugin 'w0ng/vim-hybrid'
 " Plugin 'junegunn/seoul256.vim'/'liuchengxu/space-vim-dark'
 
@@ -88,11 +92,29 @@ filetype plugin indent on " enables filetype detection
 
 " =============================================== Plugin Config {{{
 
+" ============================= Easy Motion {{{
+" <Leader>f{char} to move to {char}
+" map  <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+" nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+" map <Leader>L <Plug>(easymotion-bd-jk)
+" nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+" map  <Leader>w <Plug>(easymotion-bd-w)
+"nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" Easy Motion }}}
+
 " ============================= TaskList {{{
 let g:tlTokenList = ["FIXME", "TODO", "HACK", "NOTE", "WARN", "MODIFY", "ERROR", "BUG"]
 nnoremap <Leader>t :TaskList<CR>
 
-" }}}
+" TaskList }}}
 
 " ============================= Tagbar & Taglist {{{
 nmap <F8> :TagbarToggle<CR>
