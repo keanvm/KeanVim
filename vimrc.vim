@@ -21,6 +21,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-scripts/taglist.vim'
 
+" TaskList
+" vim-scripts/TaskList.vim
+
 " filesystem
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/nerdtree'
@@ -95,6 +98,7 @@ let Tlist_Auto_Open=0
 " ============================= SimpylFold {{{
 autocmd FileType python set foldmethod=indent
 autocmd FileType vim set foldmethod=marker
+autocmd FileType c,cs,cpp,java,js set foldmethod=manual
 let g:SimpylFold_docstring_preview = 1
 " let g:SimpylFold_fold_import = 1  " fold import
 " let g:SimpylFold_fold_docstring = 1  " fold docstring
