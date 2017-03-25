@@ -7,7 +7,7 @@
 " git clone https://github.com/VundleVim/Vundle.vim.git  ~/.vim/bundle/Vundle.vim
 " 
 " Settings {{{
-" Vim bundle plugin manager{{{
+" Plugin Manager Vim bundle {{{
 
 set nocompatible " 设置vim为不兼容vi模式
 filetype off " required
@@ -16,6 +16,10 @@ set rtp+=~/.vim/bundle/Vundle.vim  "添加d到Run Time Path
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
+" Tagbar & Taglist
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/taglist.vim'
 
 " filesystem
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -73,21 +77,31 @@ Plugin 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin indent on " enables filetype detection
 
-""" }}}
+" Vim bundle }}}
 
 " =============================================== Plugin Config {{{
+
+" ============================= Tagbar & Taglist {{{
+nmap<F8>:TagbarToggle<CR>
+let Tlist_Show_One_File=1      "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow=1    "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'  "将taglist与ctags关联
+let Tlist_Use_Right_Window=1
+let Tlist_Auto_Open=0
+" :Tlist open/close Taglist Window
+
+"Tagbar & Taglist }}}
 
 " ============================= SimpylFold {{{
 autocmd FileType python set foldmethod=indent
 autocmd FileType vim set foldmethod=marker
-set foldmethod=indent
 let g:SimpylFold_docstring_preview = 1
-let g:SimpylFold_fold_import = 1  " fold import
-let g:SimpylFold_fold_docstring = 1  " fold docstring
+" let g:SimpylFold_fold_import = 1  " fold import
+" let g:SimpylFold_fold_docstring = 1  " fold docstring
 " `zc` close a fold
 " `zo` open a fold
 
-" }}}
+" SimpylFold }}}
 
 " ============================= Syntastic {{{
 " let g:syntastic_ignore_files=[".*\.py$"]
@@ -103,12 +117,12 @@ let g:syntastic_check_on_wq = 0
 " let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libc++' "set the options of g++ to suport
 
-" }}}
+" Syntastic }}}
 
 " ============================= Fugitive {{{
 set statusline+=%{fugitive#statusline()}
 
-" }}}
+" Fugitive }}}
 
 
 " ============================= Python Mode {{{
@@ -121,7 +135,7 @@ set statusline+=%{fugitive#statusline()}
 " let g:pymode_python = 'python3'
 " nnoremap fmt :PymodeLintAuto<CR>
 
-" }}}
+" Python Mode }}}
 
 " ============================= Vim Commentary {{{
 " gcc comment out a line ,can take a count , also uncomment
@@ -131,7 +145,7 @@ set statusline+=%{fugitive#statusline()}
 " with a range like :7,17Commentary
 " :g/TODO/Commentary
 
-" }}}
+" Vim Commentary }}}
 
 " ============================= GitGutter {{{
 let g:gitgutter_map_keys = 0
@@ -139,7 +153,7 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_highlight_lines = 1
 
-" }}}
+" GitGutter }}}
 
 " ============================= Color Style {{{{
 let g:solarized_termcolors=256 " important
@@ -205,6 +219,8 @@ let g:ctrlp_custom_ignore = {
 
 " Ctrl P }}}
 
+
+
 " ============================= NerdTree {{{
 " 设置快捷键
 map <F3> :NERDTreeMirror<CR>
@@ -221,11 +237,11 @@ let NERDTreeIgnore=['\.pyc','\~$','\.swp','.DS_Store','.idea','.tmp']
 " 显示书签列表
 let NERDTreeShowBookmarks=1
 
-" ============================= vim-nerdtree-tabs
+" ============================= Vim Nerdtree Tabs
 " 在终端启动vim时，共享打开NERDTree
 " let g:nerdtree_tabs_open_on_console_startup=1
 
-" ============================= nerdtree-git-plugin
+" ============================= Nerdtree Git Plugin
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -239,9 +255,20 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " NerdTree }}}
+
 " Plugin Config }}}
 
-" =============================================== basic config
+" =============================================== Plugin Key Mapping Sheet {{{
+" <leader>l  toggle location list
+" <leader>q  toggle quickfix list
+" <c-p>      open Ctrl-P window
+" <F3>       toggle NERDTree
+" <F8>       toggle TagBar
+"
+
+" Plugin Key Mapping }}}
+
+" =============================================== Basic Config {{{
 
 let python_highlight_all=1
 let mapleader=" "
@@ -253,6 +280,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 inoremap jk <esc>:w<CR>
+nnoremap <space> za
 
 " set noswapfile      "don't use swap files
 set encoding=utf-8  "Set the default file encoding to UTF-8:
@@ -267,14 +295,12 @@ set smartindent     "Automatically inserts indentation in some cases
 set cindent         "Like smartindent, but stricter and more customisable
 
 set backspace=indent,eol,start " make backspaces more powerful
-
-" 高亮显示搜索结果
-set hlsearch
-" 高亮显示当前行/列
-set cursorline
+set foldmethod=indent
+set foldlevel=3     " 99?
+set hlsearch        " 高亮显示搜索结果
+set cursorline      " 高亮显示当前行/列
 set cursorcolumn
-" turn on numbering
-set number
+set number          " turn on numbering
 set showmode
 set ruler
 set showcmd
@@ -284,4 +310,6 @@ set list
 set listchars=tab:▸\ ,eol:¬
 syntax on
 
-"Settings }}}
+" Basic Config }}}
+
+" Settings }}}
