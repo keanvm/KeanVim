@@ -185,8 +185,6 @@ let g:gitgutter_highlight_lines = 1
 " GitGutter }}}
 
 " ============================= Color Style {{{
-set background=dark
-set t_Co=256
 " ========= Solarized
 let g:solarized_termcolors=256 " important
 colorscheme solarized 
@@ -197,7 +195,8 @@ colorscheme solarized
 " ========= Molokai
 " let g:molokai_original = 1
 " let g:rehash256 = 1
-
+set background=dark
+set t_Co=256
 " Color Style }}}
 
 " ============================= ListToggle {{{ 
