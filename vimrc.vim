@@ -112,6 +112,8 @@ filetype plugin indent on " enables filetype detection
 
 " ============================= TaskList {{{
 let g:tlTokenList = ["FIXME", "TODO", "HACK", "NOTE", "WARN", "MODIFY", "ERROR", "BUG"]
+let g:tlWindowPosition = 1 " open on top, 0 open on bottom
+" let g:tlRememberPosition = 1
 nnoremap <Leader>t :TaskList<CR>
 
 " TaskList }}}
