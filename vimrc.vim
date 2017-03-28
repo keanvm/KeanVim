@@ -3,7 +3,6 @@
 " Developed by KeanVM Host 'KeanVM' < KeanVM AT gamil DOT com>
 "_____________________________________________________________
 "
-"
 " git clone https://github.com/VundleVim/Vundle.vim.git  ~/.vim/bundle/Vundle.vim
 " 
 " Settings {{{
@@ -77,11 +76,12 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 
-" clolors
+" clolor schemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'sickill/vim-monokai'
+" Plugin 'flazz/vim-colorschemes'
 " Plugin 'w0ng/vim-hybrid'
 " Plugin 'junegunn/seoul256.vim'/'liuchengxu/space-vim-dark'
 
@@ -106,7 +106,7 @@ filetype plugin indent on " enables filetype detection
 
 " Move to word
 " map  <Leader>w <Plug>(easymotion-bd-w)
-"nmap <Leader>w <Plug>(easymotion-overwin-w)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " Easy Motion }}}
 
@@ -209,16 +209,9 @@ let g:gitgutter_highlight_lines = 1
 " ============================= Color Style {{{
 " ========= Solarized
 let g:solarized_termcolors=256 " important
-colorscheme solarized 
-" colorscheme zenburn
-" colorscheme molokai
-" colorscheme desert
-" set guifont=Monaco:h14
-" ========= Molokai
 " let g:molokai_original = 1
 " let g:rehash256 = 1
-set background=dark
-set t_Co=256
+
 " Color Style }}}
 
 " ============================= ListToggle {{{ 
@@ -322,7 +315,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " <c-p>      open Ctrl-P window
 " <F3>       toggle NERDTree
 " <F8>       toggle TagBar
-"
+" <Leader>t  show TaskList
 
 " Plugin Key Mapping }}}
 
@@ -366,7 +359,17 @@ set cmdheight=2
 set helplang=cn
 set list
 set listchars=tab:▸\ ,eol:¬
+
 syntax on
+syntax enable
+set background=dark
+colorscheme solarized 
+" colorscheme zenburn
+" colorscheme molokai
+" colorscheme desert
+" set guifont=Monaco:h14
+" ========= Molokai
+" set t_Co=256
 
 " Basic Config }}}
 
