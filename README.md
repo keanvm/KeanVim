@@ -1,6 +1,22 @@
 # KeanVim
 Kean's Vim Configuration
 
+## Installtation
+
+Follow the steps below to install
+
+-  Install KeanVim
+    - `git clone https://github.com/keanvm/KeanVim.git ~/KeanVim`
+    - `~/Keanvim/install.sh`
+
+- Install Bundle
+    - `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+
+- Install Bundle Plugins
+    - run vim, and input `:PluginInstall!`
+
+Well, That's All!
+
 ## 安装Bundle
 - 需使用git，一般*nix 机器都有，例如ubuntu使用`sudo apt-get install git`即可
 - 安装Bundle：`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
@@ -29,6 +45,17 @@ call vundle#end()
 filetype plugin indent on
 
 ```
+
+### Bundle Command
+
+- :BundleList -列举出列表中(.vimrc中)配置的所有插件
+- :BundleInstall -安装列表中全部插件
+- :BundleInstall! -更新列表中全部插件
+- :BundleSearch foo -查找foo插件
+- :BundleSearch! foo -刷新foo插件缓存
+- :BundleClean -清除列表中没有的插件
+- :BundleClean! -清除列表中没有的插件
+
 
 ## Powerline-status
 - 安装 powerline-status `pip install powerline-status`
@@ -64,13 +91,5 @@ rm -rf ~/.ohmyzsh-powerline
 :bd    删除buf
 ```
 
-## Bundle
-- :BundleList -列举出列表中(.vimrc中)配置的所有插件
-- :BundleInstall -安装列表中全部插件
-- :BundleInstall! -更新列表中全部插件
-- :BundleSearch foo -查找foo插件
-- :BundleSearch! foo -刷新foo插件缓存
-- :BundleClean -清除列表中没有的插件
-- :BundleClean! -清除列表中没有的插件
 
 
