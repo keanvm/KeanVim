@@ -13,7 +13,7 @@ Follow the steps below to install
     - `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 - Install Bundle Plugins
-    - run vim, and input `:PluginInstall!`
+    - run vim in shell, and input `:PluginInstall!`
 
 Well, That's All!
 
