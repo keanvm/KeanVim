@@ -1,0 +1,22 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# some more ls aliases
+alias cls="clear"
+alias ll="ls -lhaS"
+alias la="ls -a"
+alias l="ls -lh"
+
+
+# ~/.bash_aliases, instead of adding them here directly.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+export PATH=$HOME/anaconda2/bin:$PATH
+
+
