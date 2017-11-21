@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cat ./bashrc >> ~/.bashrc
+cp ./sshrc ~/.sshrc
+cp ./ssh.py ~/.ssh.py
+cp ./gitconfig ~/.gitconfig
+cp ./gitignore_global ~/.gitignore_global
+

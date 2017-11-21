@@ -17,6 +17,25 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+stop(){
+    local pids=$(ps -x | egrep "$1" | cut -c 1-5)
+    if [[ $pids != "" ]]
+    then
+        echo "Stopping $1"
+        echo $pids | xargs kill
+    else
+        echo "regnex $1 has no match"
+    fi
+}
+
 export PATH=$HOME/anaconda2/bin:$PATH
 
+goto(){
+    local args=`./.ssh.py $1`
+    ssh $args
+}
 
+gofo(){
+    local args=`./.ssh.py $1`
+    sftp $args
+}
