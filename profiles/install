@@ -3,6 +3,7 @@
 cat ./bashrc >> ~/.bashrc
 touch ~/.sshrc
 cp ./ssh.py ~/.ssh.py
+chmod u+x ~/.ssh.py
 cp ./gitconfig ~/.gitconfig
 cp ./gitignore_global ~/.gitignore_global
 
