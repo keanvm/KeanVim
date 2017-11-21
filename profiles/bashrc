@@ -31,11 +31,11 @@ stop(){
 export PATH=$HOME/anaconda2/bin:$PATH
 
 goto(){
-    local args=`./.ssh.py $1`
+    local args=`~/.ssh.py $1`
     ssh $args
 }
 
 gofo(){
-    local args=`./.ssh.py $1`
+    local args=`~/.ssh.py $1`
     sftp $args
 }
