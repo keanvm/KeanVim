@@ -22,6 +22,8 @@ def get_config(file_name, name):
     identity = values.get("identity", None)
     identity = "" if identity is None else "-i {}".format(identity)
     args = values.get("args", "")
+    if args is None:
+        args = ""
     return " {} {} {} {}".format(args, identity, port, user_host)
 
 
