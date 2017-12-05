@@ -32,10 +32,20 @@ export PATH=$HOME/anaconda2/bin:$PATH
 
 goto(){
     local args=`~/.ssh.py $1`
-    ssh $args
+    if [[ $args =~ "wrong" ]]
+    then
+        echo "$args"
+    else
+        ssh $args
+    fi
 }
 
 gofo(){
     local args=`~/.ssh.py $1`
-    sftp $args
+    if [[ $args =~ "wrong" ]]
+    then
+        echo "$args"
+    else
+        sftp $args
+    fi
 }
