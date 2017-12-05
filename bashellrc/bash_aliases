@@ -3,3 +3,6 @@ alias cls="clear"
 alias ll="ls -lhaS"
 alias la="ls -a"
 alias l="ls -lh"
+
+alias rps="ps -x | grep"
+alias httpserver="python -m SimpleHTTPServer 8088"

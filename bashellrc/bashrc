@@ -15,6 +15,7 @@ if [ -f ~/.bashellrc/bash_aliases ]; then
     . ~/.bashellrc/bash_aliases 
 fi
 
+export EDITOR="vim"
 
 stop(){
     local pids=$(ps -x | egrep "$1" | cut -c 1-5)

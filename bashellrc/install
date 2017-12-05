@@ -1,5 +1,5 @@
 #!/bin/bash
-
+chmod u+x ./ssh.py
 cp -rf . ~/.bashellrc
 printf "
 if [ -f ~/.bashellrc/bashrc ]; then
