@@ -1,9 +1,13 @@
 #!/bin/bash
 
-cat ./bashrc >> ~/.bashrc
-touch ~/.sshrc
-cp ./ssh.py ~/.ssh.py
-chmod u+x ~/.ssh.py
+cp -rf . ~/.bashellrc
+printf "
+if [ -f ~/.bashellrc/bashrc ]; then
+    . ~/.bashellrc/bashrc
+fi
+" >> ~/.bashrc
+cp ~/gitconfig ./gitconfig.bk
 cp ./gitconfig ~/.gitconfig
+cp ~/.gitignore_global ./gitignore_global.bk
 cp ./gitignore_global ~/.gitignore_global
 

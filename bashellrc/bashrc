@@ -5,17 +5,16 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# some more ls aliases
-alias cls="clear"
-alias ll="ls -lhaS"
-alias la="ls -a"
-alias l="ls -lh"
-
-
 # ~/.bash_aliases, instead of adding them here directly.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+
+if [ -f ~/.bashellrc/bash_aliases ]; then
+    . ~/.bashellrc/bash_aliases 
+fi
+
 
 stop(){
     local pids=$(ps -x | egrep "$1" | cut -c 1-5)
@@ -31,7 +30,7 @@ stop(){
 export PATH=$HOME/anaconda2/bin:$PATH
 
 goto(){
-    local args=`~/.ssh.py $1`
+    local args=`~/.bashellrc/ssh.py $1`
     if [[ $args =~ "wrong" ]]
     then
         echo "$args"
@@ -41,7 +40,7 @@ goto(){
 }
 
 gofo(){
-    local args=`~/.ssh.py $1`
+    local args=`~/.bashellrc/ssh.py $1`
     if [[ $args =~ "wrong" ]]
     then
         echo "$args"
