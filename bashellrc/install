@@ -6,8 +6,14 @@ if [ -f ~/.bashellrc/bashrc ]; then
     . ~/.bashellrc/bashrc
 fi
 " >> ~/.bashrc
-cp ~/gitconfig ./gitconfig.bk
+if [ -f ~/.gitconfig ]; then
+    cp ~/.gitconfig ./gitconfig.bk
+fi
+
 cp ./gitconfig ~/.gitconfig
-cp ~/.gitignore_global ./gitignore_global.bk
+
+if [ -f ~/.gitignore_global ]; then
+    cp ~/.gitignore_global ./gitignore_global.bk
+fi
 cp ./gitignore_global ~/.gitignore_global
 
