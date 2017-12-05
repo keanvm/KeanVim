@@ -1,0 +1,5 @@
+# some more ls aliases
+alias cls="clear"
+alias ll="ls -lhaS"
+alias la="ls -a"
+alias l="ls -lh"
