@@ -16,6 +16,10 @@ if [ -f ~/.bashellrc/bash_aliases ]; then
 fi
 
 export EDITOR="vim"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LSCOLORS=bxfxaxdxcxegedabagacad¬
 
 stop(){
     local pids=$(ps -x | egrep "$1" | cut -c 1-5)

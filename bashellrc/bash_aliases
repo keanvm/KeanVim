@@ -1,8 +1,9 @@
 # some more ls aliases
 alias cls="clear"
-alias ll="ls -lhaS"
+alias ll="ls -lha"
 alias la="ls -a"
 alias l="ls -lh"
-
+alias sl="ls -lhS"
+alias vi="vim"
 alias rps="ps -x | grep"
 alias httpserver="python -m SimpleHTTPServer 8088"

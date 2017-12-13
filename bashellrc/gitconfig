@@ -12,6 +12,6 @@
     cd = push -u coding master
     last = log -1
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
+    re = grep -n
 [core]
     excludesfile = ~/.gitignore_global
