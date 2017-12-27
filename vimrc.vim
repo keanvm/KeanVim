@@ -365,9 +365,9 @@ set listchars=tab:▸\ ,eol:¬
 syntax on
 syntax enable
 set background=dark
-colorscheme solarized 
+" colorscheme solarized 
 " colorscheme zenburn
-" colorscheme molokai
+colorscheme molokai
 " colorscheme desert
 " set guifont=Monaco:h14
 " ========= Molokai
