@@ -1,6 +1,0 @@
-localhost:
-    host: localhost
-    port: 22
-    user: root
-    identity: ~/.ssh/id_rsa
-    args: 
