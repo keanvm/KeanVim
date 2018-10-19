@@ -1,10 +1,6 @@
 #!/bin/bash
-cp -rf . ~/.bashellrc
-printf "
-if [ -f ~/.bashellrc/bashrc ]; then
-    . ~/.bashellrc/bashrc
-fi
-" >> ~/.bashrc
+
+
 if [ -f ~/.gitconfig ]; then
     cp ~/.gitconfig ./gitconfig.bk
 fi
@@ -14,5 +10,6 @@ cp ./gitconfig ~/.gitconfig
 if [ -f ~/.gitignore_global ]; then
     cp ~/.gitignore_global ./gitignore_global.bk
 fi
+
 cp ./gitignore_global ~/.gitignore_global
 

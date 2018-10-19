@@ -1,25 +1,24 @@
 # .bashrc
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+source_file(){
+    if [ -f $1 ]; then
+        source $1
+    fi
+}
+source_file "/etc/bashrc"
+source_file "~/.bash_aliases"
+source_file "~/.bashellrc/bash_aliases"
 
-# ~/.bash_aliases, instead of adding them here directly.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-
-if [ -f ~/.bashellrc/bash_aliases ]; then
-    . ~/.bashellrc/bash_aliases 
-fi
-
-export EDITOR="vim"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
-export LSCOLORS=bxfxaxdxcxegedabagacad¬
+reload(){
+    shell=`ps | grep $$ | grep -v grep | awk '{print $4}'`
+    if [[ $shell =~ "bash"  ]] || [[ $0 =~ "bash" ]]; then
+        source $HOME/.bashrc
+    elif [[ $0 =~ "zsh" ]] || [[ $shell =~ "zsh" ]]; then
+        source $HOME/.zshrc
+    else
+        echo "What shell?"
+    fi
+}
 
 stop(){
     local pids=$(ps -x | egrep "$1" | cut -c 1-5)
@@ -28,28 +27,16 @@ stop(){
         echo "Stopping $1"
         echo $pids | xargs kill
     else
-        echo "regnex $1 has no match"
+        echo "regex $1 has no match"
     fi
 }
 
-export PATH=$HOME/anaconda2/bin:$PATH
 
-goto(){
-    local args=`~/.bashellrc/ssh.py $1`
-    if [[ $args =~ "wrong" ]]
-    then
-        echo "$args"
-    else
-        ssh $args
-    fi
-}
+export EDITOR="vim"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LSCOLORS=bxfxaxdxcxegedabagacad¬
 
-gofo(){
-    local args=`~/.bashellrc/ssh.py $1`
-    if [[ $args =~ "wrong" ]]
-    then
-        echo "$args"
-    else
-        sftp $args
-    fi
-}
+
+export PATH=$HOME/anaconda3/bin:$PATH
