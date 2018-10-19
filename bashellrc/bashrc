@@ -1,7 +1,7 @@
 # .bashrc
 
 
-for name in  "etc/bashrc"  "~/.bash_aliases"  "~/.bashellrc/bash_aliases"
+for name in  etc/bashrc  ~/.bash_aliases  ~/.bashellrc/bash_aliases
 do
     [ -f $name ] && source $name
 done
