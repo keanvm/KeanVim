@@ -1,24 +1,20 @@
 # .bashrc
 
-source_file(){
-    if [ -f $1 ]; then
-        source $1
-    fi
-}
-source_file "/etc/bashrc"
-source_file "~/.bash_aliases"
-source_file "~/.bashellrc/bash_aliases"
 
-reload(){
-    shell=`ps | grep $$ | grep -v grep | awk '{print $4}'`
-    if [[ $shell =~ "bash"  ]] || [[ $0 =~ "bash" ]]; then
-        source $HOME/.bashrc
-    elif [[ $0 =~ "zsh" ]] || [[ $shell =~ "zsh" ]]; then
-        source $HOME/.zshrc
-    else
-        echo "What shell?"
-    fi
-}
+for name in  "etc/bashrc"  "~/.bash_aliases"  "~/.bashellrc/bash_aliases"
+do
+    [ -f $name] && source $name
+done
+
+shell=`ps | grep $$ | grep -v grep | awk '{print $4}'`
+if [[ $shell =~ "bash"  ]] || [[ $0 =~ "bash" ]]; then
+    alias reload="source $HOME/.bashrc"
+elif [[ $0 =~ "zsh" ]] || [[ $shell =~ "zsh" ]]; then
+    alias reload-"source $HOME/.zshrc""
+else
+    alias reload="echo 'What shell?'"
+fi
+
 
 stop(){
     local pids=$(ps -x | egrep "$1" | cut -c 1-5)
