@@ -3,14 +3,14 @@
 
 for name in  "etc/bashrc"  "~/.bash_aliases"  "~/.bashellrc/bash_aliases"
 do
-    [ -f $name] && source $name
+    [ -f $name ] && source $name
 done
 
 shell=`ps | grep $$ | grep -v grep | awk '{print $4}'`
 if [[ $shell =~ "bash"  ]] || [[ $0 =~ "bash" ]]; then
     alias reload="source $HOME/.bashrc"
 elif [[ $0 =~ "zsh" ]] || [[ $shell =~ "zsh" ]]; then
-    alias reload-"source $HOME/.zshrc""
+    alias reload-"source $HOME/.zshrc"
 else
     alias reload="echo 'What shell?'"
 fi
